@@ -1,12 +1,23 @@
 # Ignore everything
+
 *
 
-# But not these directories
+!*/
+
+# Exclude these directories from being ignored (keep them)
 !/Code/
 !/kitty/
 !/polybar/
 !/nitrogen/
+!/nitro/
 
-# And not this file itself
+# Don't ignore .gitignore file
 !.gitignore
+
+# Ignore everything inside the directories but keep the directories
+!/Code/** 
+!/kitty/** 
+!/polybar/** 
+!/nitrogen/** 
+!/nitro/**
 
