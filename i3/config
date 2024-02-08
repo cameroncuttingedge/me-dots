@@ -32,7 +32,8 @@ set $accent-color     	 #0073E5
 set $mod Mod4
 
 # Define bluetooth mac addresses
-#set $headset "E8:EE:CC:68:AB:C6"
+set $headset "00:0A:45:11:D9:BF"
+set $speakers "41:42:00:00:00:53"
 
 # Define user
 set $home "/home/cameron"
@@ -53,7 +54,6 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r restart
 
 # Logout
-
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'" 
 
 # Switch to workspace
@@ -153,7 +153,8 @@ mode $mode_bluetooth {
   bindsym d exec --no-startup-id bluetoothctl power off, mode "default"
   bindsym j exec --no-startup-id bluetoothctl connect $headset, mode "default"
   bindsym k exec --no-startup-id bluetoothctl disconnect $headset, mode "default"
-
+  bindsym q exec --no-startup-id bluetoothctl connect $speakers, mode "default"
+  bindsym e exec --no-startup-id bluetoothctl disconnect $speakers, mode "default"
   bindsym Return mode "default"
   bindsym Escape mode "default"
   bindsym $mod+b mode "default"
@@ -234,4 +235,3 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # Disable title bar
 default_border pixel 1
 default_floating_border pixel 1
-
