@@ -1,0 +1,12 @@
+# Ignore everything
+*
+
+# But not these directories
+!/Code/
+!/kitty/
+!/polybar/
+!/nitrogen/
+
+# And not this file itself
+!.gitignore
+
