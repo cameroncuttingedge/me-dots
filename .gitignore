@@ -5,19 +5,18 @@
 !*/
 
 # Exclude these directories from being ignored (keep them)
-!/Code/
 !/kitty/
 !/polybar/
 !/nitrogen/
 !/nitro/
+!/i3/
 
 # Don't ignore .gitignore file
 !.gitignore
 
 # Ignore everything inside the directories but keep the directories
-!/Code/** 
 !/kitty/** 
 !/polybar/** 
 !/nitrogen/** 
 !/nitro/**
-
+!/i3/**

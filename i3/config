@@ -155,6 +155,7 @@ mode $mode_bluetooth {
   bindsym k exec --no-startup-id bluetoothctl disconnect $headset, mode "default"
   bindsym q exec --no-startup-id bluetoothctl connect $speakers, mode "default"
   bindsym e exec --no-startup-id bluetoothctl disconnect $speakers, mode "default"
+  bindsym s exec --no-startup-id  /home/$USER/.config/i3/scripts/switch_audio.sh, mode "default"
   bindsym Return mode "default"
   bindsym Escape mode "default"
   bindsym $mod+b mode "default"
