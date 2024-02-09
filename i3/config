@@ -46,7 +46,6 @@ assign [class="jetbrains-idea-ce"] $ws3
 assign [class="VirtualBox Machine"] $ws3
 assign [class="(?i)firefox"] $ws2
 
-
 # Kill focused window
 bindsym $mod+Shift+q kill
 
@@ -111,20 +110,23 @@ bindsym $mod+Shift+space mode $mode_resize
 
 mode $mode_applications {
   # workspace 1: A
-  bindsym d exec discord, workspace number 1, mode "default"
+  bindsym k  exec kitty, workspace number 1, mode "default"
 
   # workspace 2: S
-  bindsym t exec alacritty, workspace number 2, mode "default"
+  bindsym f exec firefox, workspace number 2, mode "default"
 
   # workspace 3: D
-  bindsym n exec alacritty --class NeoVim -e nvim ~/Projects, workspace number 3, mode "default"
+  bindsym p exec kitty --class NeoVim -e nvim ~/personal/, workspace number 3, mode "default"
+  bindsym w exec kitty nvim -c 'cd ~/workspace//' -c 'NvimTreeToggle', workspace number 3, mode "default"
   bindsym i exec idea, workspace number 3, mode "default"
+
   bindsym w exec vboxmanage startvm "windows", workspace number 3, mode "default"
 
   # workspace 4: F
   bindsym b exec firefox, workspace number 4, mode "default"
 
   # workspace 5: G
+  bindsym d exec discord, workspace number 5, mode "default"
 
 
   # workspace 6: T
