@@ -10,6 +10,8 @@
 !/nitrogen/
 !/nitro/
 !/i3/
+!/nvim/
+!/fish/
 
 # Don't ignore .gitignore file
 !.gitignore
@@ -20,3 +22,5 @@
 !/nitrogen/** 
 !/nitro/**
 !/i3/**
+!/nvim/**
+!/fish/**

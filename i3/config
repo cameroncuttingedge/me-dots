@@ -1,5 +1,7 @@
 # Config screens
 exec --no-startup-id polybar --config=/home/cameron/.config/polybar/config.ini  main
+
+# Config picom
 exec_always --no-startup-id picom -b
 
 # Define workspaces
@@ -40,7 +42,6 @@ set $home "/home/cameron"
 
 # Assign workspaces
 assign [title="Discord"] $ws5
-assign [class="kitty"] $ws1
 assign [class="NeoVim"] $ws3
 assign [class="jetbrains-idea-ce"] $ws3
 assign [class="VirtualBox Machine"] $ws3
@@ -91,7 +92,7 @@ bindsym $mod+l focus right
 bindsym $mod+semicolon exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -fn "MesloLGS NF Regular-12" -nb "$bg-color" -sb "$accent-color" -nf "$text-color"'
 
 # New terminal 
-bindsym $mod+Return exec --no-startup-id  kitty -o allow_remote_control=yes -o enabled_layouts=tall
+bindsym $mod+Return exec --no-startup-id kitty
 
 # Turn off the PC
 bindsym $mod+Shift+F4 exec --no-startup-id poweroff
@@ -110,35 +111,28 @@ bindsym $mod+Shift+space mode $mode_resize
 
 mode $mode_applications {
   # workspace 1: A
-  bindsym k  exec kitty, workspace number 1, mode "default"
+  bindsym k  exec kitty,workspace number $ws1, mode "default"
 
   # workspace 2: S
   bindsym f exec firefox, workspace number 2, mode "default"
 
-  # workspace 3: D
-  bindsym p exec kitty --class NeoVim -e nvim ~/personal/, workspace number 3, mode "default"
-  bindsym w exec kitty nvim -c 'cd ~/workspace//' -c 'NvimTreeToggle', workspace number 3, mode "default"
+  # workspace 3 NeoVim mappings
+
+  bindsym p exec kitty --class NeoVim -e nvim -c :cd/home/cameron/personal -c :NvimTreeToggle, workspace number 3, mode "default"
+  bindsym w exec kitty --class NeoVim -e nvim -c :cd/home/cameron/workspace -c :NvimTreeToggle, workspace number 3, mode "default"
+  bindsym c exec kitty --class NeoVim -e nvim -c :cd/home/cameron/.config -c :NvimTreeToggle, workspace number 3, mode "default"
   bindsym i exec idea, workspace number 3, mode "default"
 
-  bindsym w exec vboxmanage startvm "windows", workspace number 3, mode "default"
-
-  # workspace 4: F
-  bindsym b exec firefox, workspace number 4, mode "default"
-
-  # workspace 5: G
+  # workspace 5: D
   bindsym d exec discord, workspace number 5, mode "default"
 
-
   # workspace 6: T
-  bindsym c exec calibre, workspace number 6, mode "default"
+
   bindsym Shift+p exec pavucontrol, workspace number 6, mode "default"
 
   # workspace 7: R
   bindsym Shift+b exec chromium, workspace number 7, mode "default"
-
-  # workspace 8: E
-  bindsym p exec postman, workspace number 8, mode "default"
-
+ 
   # workspace 9: W
   bindsym a exec anki, workspace number 9, mode "default"
 
@@ -223,8 +217,8 @@ floating_modifier $mod
 exec --no-startup-id nitrogen --restore
 
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
