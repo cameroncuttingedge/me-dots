@@ -4,6 +4,9 @@ exec --no-startup-id polybar --config=/home/cameron/.config/polybar/config.ini  
 # Config picom
 exec_always --no-startup-id picom -b
 
+# Start up bluetooth scanning
+exec_always --no-startup-id bluetoothctl scan on
+
 # Define workspaces
 set $ws1 "1"
 set $ws2 "2"
@@ -127,7 +130,7 @@ mode $mode_applications {
   bindsym d exec discord, workspace number 5, mode "default"
 
   # workspace 6: T
-
+  bindsym Shift+s exec surfshark, workspace number 6, mode "default"
   bindsym Shift+p exec pavucontrol, workspace number 6, mode "default"
 
   # workspace 7: R
