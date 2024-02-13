@@ -141,7 +141,7 @@ mode $mode_applications {
 
   # workspace 10: Q
   bindsym s exec stremio, workspace number 10, mode "default"
-
+  bindsym m exec spotify, workspace number 6, mode "default"
   bindsym Return mode "default"
   bindsym Escape mode "default"
   bindsym $mod+space mode "default"
