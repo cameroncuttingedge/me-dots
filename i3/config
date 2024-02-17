@@ -44,11 +44,17 @@ set $speakers "41:42:00:00:00:53"
 set $home "/home/cameron"
 
 # Assign workspaces
-assign [title="Discord"] $ws5
+# Workspace 2
+assign [class="(?i)firefox"] $ws2
+
+# Workspace 3
 assign [class="NeoVim"] $ws3
 assign [class="jetbrains-idea-ce"] $ws3
 assign [class="VirtualBox Machine"] $ws3
-assign [class="(?i)firefox"] $ws2
+assign [title="Code"] $ws3
+
+# Workspace 5
+assign [title="Discord"] $ws5
 
 # Kill focused window
 bindsym $mod+Shift+q kill
